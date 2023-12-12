@@ -103,6 +103,7 @@ Bouton_Login.addEventListener(
     main.appendChild(conteneur);
     main.className = "mainClass";
     const logo= document.getElementById("logo")
+    logo.classList="curseur"
     logo.addEventListener("click",function(){
       window.location="./index.html"
     })
@@ -129,16 +130,27 @@ form.addEventListener("submit", (Event) => {
       headers: { "Content-Type": "application/json;charset=utf-8" },
       body: JSON.stringify(user),
     });
-    const result = await response.json();
-    console.log(result)
+      result = await response.json();
+      
+   
+     
     if (response.status == 404 || response.status == 401) {
-      const message = document.createElement("span");
-      message.innerHTML = "ERREUR !";
-      message.className = "alert";
+      console.log(result)
+      const erreur_message = document.createElement("span");
+      erreur_message.innerHTML = " ERROR : " + result.message;
+      erreur_message.className = "alert";
       const form = document.getElementById("formulaire");
-      form.appendChild(message);
+      form.appendChild(erreur_message);
+      //alert("Erreur !")
     }
     if (response.status == 200) {
+       console.log(result)
+      window.localStorage.setItem("token",result.token)
+      const token=window.localStorage.getItem("token")
+      console.log(token)
+      
+      
+      
       window.location = "./index1.html";
     }
   }

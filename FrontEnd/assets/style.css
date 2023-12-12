@@ -140,7 +140,7 @@ header {
   margin: 50px 0;
 }
 section {
-  margin: 50px 0;
+  margin: 150px 0;
 }
 
 h1 {
@@ -156,6 +156,34 @@ h1 > span {
   font-family: "Work Sans";
   font-size: 10px;
   letter-spacing: 0.1em;
+}
+span {
+  font-family: "Work Sans";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #ffffff;
+}
+.En_Tete {
+  height: 59px;
+  background-color: black;
+  text-align: center;
+}
+
+.modifier p {
+  margin-top: 10px;
+  font-family: "Work Sans";
+  font-size: 14px;
+  font-weight: 400;
+  color: black;
+}
+.modifier {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  gap: 50px;
+  margin-bottom: 80px;
 }
 
 h2 {
@@ -210,18 +238,17 @@ li:hover {
   justify-content: center;
   gap: 1em;
   padding-bottom: 50px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
-.actif{
+.actif {
   color: #ffffff;
   background-color: #1d6154;
 }
-.inactif{
+.inactif {
   color: #1d6154;
   background-color: #ffffff;
 }
 .all {
-   
   padding-left: 29px;
   padding-right: 29px;
   padding-top: 10px;
@@ -235,7 +262,6 @@ li:hover {
   border-width: 1px;
 }
 .objects {
-  
   padding-left: 21px;
   padding-right: 21px;
   padding-top: 10px;
@@ -249,7 +275,6 @@ li:hover {
   border-width: 1px;
 }
 .appartments {
-  
   padding-left: 14px;
   padding-right: 14px;
   padding-top: 10px;
@@ -263,7 +288,6 @@ li:hover {
   border-width: 1px;
 }
 .Hôtels_restaurants {
- 
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
@@ -331,7 +355,6 @@ li:hover {
   margin: 2em 0 1em 0;
 }
 .mainClass p {
-   
   text-align: center;
   text-decoration: underline;
 }
@@ -340,21 +363,43 @@ li:hover {
   font-weight: bold;
 }
 
+section .title {
+  margin-bottom: 40px;
+  font-family: Work Sans;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+  color:#000000;
+}
+.modal_body{
+  display: flex;
+   justify-content: center;
+  width: 630px;
+  
+}
+.photo_size{
+  width: 76.86px;
+  height: 102.57px;
+  top: 796px;
+  left: 510px;
+  
+}
+ 
 .gallery .inactive {
   display: none;
 }
 
-.alert{
+.alert {
   margin-bottom: 20px;
-   text-align: center;
+  text-align: center;
   font-family: "Syne";
   font-weight: 700;
   font-size: 20px;
-  color: red
-   
-
+  color: red;
 }
-.curseur{
+.curseur {
   cursor: default;
 }
 

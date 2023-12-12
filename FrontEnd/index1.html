@@ -13,10 +13,13 @@
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
     <script src="./script.js" defer></script>
+    
   </head>
+  <nav class="En_Tete"> <span> Mode édition </span></nav>
   <body id="bodyLogin">
-    <header>
-      <h1 id="logo">Sophie Bluel <span>Architecte d'intérieur</span></h1>
+    
+    <header>      
+      <h1 id="logo" class="curseur" onclick="window.location.href='index.html'">Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li>projets</li>
@@ -58,7 +61,7 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <div class="modifier"> <h2>Mes projets</h2> <p class="curseur" onclick="window.location.href='modal.html'"> modifier </p></div>
         <div id="filtres" class="Filtres off"></div>
         <div id="MyProjects" class="gallery"></div>
       </section>
