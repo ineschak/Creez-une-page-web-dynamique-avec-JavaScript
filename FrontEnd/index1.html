@@ -143,9 +143,24 @@
                 />
               </div>
               <div class="bordure"></div>
-              <bouton type="submit" class="Boutonsubmit_modal">
+              <bouton id="boutonAjouter" type="submit" class="Boutonsubmit_modal cursor">
                 Ajouter une photo
               </bouton>
+            </div>
+          </dialog>
+          <dialog id="modalAjoutProjet">
+            <div class="modal_content">
+              <img
+                class="fleche_modal"
+                id="fleche_modal"
+                src="./assets/icons/arrow-left.svg"
+              />
+              <img
+                class="modal_close"
+                id="close_button"
+                src="./assets/icons/xmark.svg"
+              />
+              <h1 class="title">Ajout photo</h1>
             </div>
           </dialog>
           <script>
@@ -164,6 +179,17 @@
                 modal.close()
               }
             };
+            const boutonAjouter=document.querySelector("#boutonAjouter")
+            const modalAjoutProjet = document.querySelector("#modalAjoutProjet");
+            boutonAjouter.addEventListener("click", () => {
+              modal.close()
+              modalAjoutProjet.show()
+            })
+            window.onclick = function (event) {
+              if (event.target == modalAjoutProjet) {
+                modalAjoutProjet.close()
+              }
+            }
           </script>
           <div id="les_Filtres" class="off"></div>
           <div id="MyProjects" class="gallery"></div>

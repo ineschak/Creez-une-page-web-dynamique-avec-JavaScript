@@ -367,10 +367,24 @@ li:hover {
   text-align: center;
   color: #000000;
 }
-
+.fleche_modal{
+  position: relative;
+  top: 20px;
+  left:20px;
+}
 .photo_size {
   height: 102.57px;
   width: 76.86px;
+}
+#modalAjoutProjet .title{
+  margin-top: 30px;
+  font-family: Work Sans;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
 }
 
 dialog {
@@ -410,7 +424,7 @@ dialog {
 .modal_close {
   position: relative;
   top: 20px;
-  left: 580px;
+  left: 560px;
 }
 
 .modal_content {
