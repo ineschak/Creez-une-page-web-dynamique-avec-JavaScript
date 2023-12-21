@@ -17,7 +17,9 @@
 
   <body class="class1">
     <header>
-      <h1 id="logo">Sophie Bluel <span>Architecte d'intérieur</span></h1>
+      <h1 class="cursor" onclick="window.location.href='./index.html'">
+        Sophie Bluel <span>Architecte d'intérieur</span>
+      </h1>
       <nav>
         <ul>
           <li>projets</li>
@@ -27,15 +29,19 @@
         </ul>
       </nav>
     </header>
-    <main id="Main">
-      <form id="formulaire" class="off" action="#" method="post">
-        <label for="email">E-mail</label>
-        <input type="email" name="email" id="e_mail" />
-        <label for="mot de passe">Mot de passe</label>
-        <input type="text" name="mot de passe" id="mot de passe" />
-        <input id="Boutonsubmit" type="submit" value="Se connecter" />
-      </form>
-      <section id="introduction">
+    <main class="mainClass">
+      <section>
+        <h2>Log In</h2>
+        <form id="formulaire" action="#" method="post">
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="e_mail" />
+          <label for="mot de passe">Mot de passe</label>
+          <input type="text" name="mot de passe" id="mot de passe" />
+          <input id="Boutonsubmit" type="submit" value="Se connecter" />
+          <p>Mot de passe oublié</p>
+        </form>
+      </section>
+      <section class="off" id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
         </figure>
@@ -58,12 +64,12 @@
           </p>
         </article>
       </section>
-      <section id="portfolio">
+      <section class="off" id="portfolio">
         <h2>Mes projets</h2>
         <div id="les_Filtres" class="Filtres"></div>
         <div id="MyProjects" class="gallery"></div>
       </section>
-      <section id="contact">
+      <section class="off" id="contact">
         <h2>Contact</h2>
         <p>Vous avez un projet ? Discutons-en !</p>
         <form action="#" method="post">

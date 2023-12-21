@@ -105,8 +105,15 @@ nav,
 section {
   display: block;
 }
-body {
-  line-height: 1;
+.class1 {
+  max-width: 1140px;
+  margin: auto;
+  font-family: "Work Sans";
+  font-size: 14px;
+  line-height: 16.42px;
+}
+.cursor {
+  cursor: default;
 }
 ol,
 ul {
@@ -128,7 +135,7 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
-body {
+.class_body {
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
@@ -156,6 +163,7 @@ h1 > span {
   font-family: "Work Sans";
   font-size: 10px;
   letter-spacing: 0.1em;
+  color: #b1663c;
 }
 span {
   font-family: "Work Sans";
@@ -163,11 +171,19 @@ span {
   font-weight: 400;
   line-height: 19px;
   color: #ffffff;
+  text-align: center;
 }
+
 .En_Tete {
+  display: flex;
   height: 59px;
   background-color: black;
-  text-align: center;
+  justify-content: center;
+}
+.En_Tete img {
+  width: 15.58px;
+  height: 15.58px;
+  top: 2px;
 }
 
 .modifier p {
@@ -179,9 +195,7 @@ span {
 }
 .modifier {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-
   gap: 50px;
   margin-bottom: 80px;
 }
@@ -215,7 +229,7 @@ li:hover {
 #introduction img {
   display: block;
   margin: auto;
-  width: 80%;
+  width: 75%;
 }
 
 #introduction article {
@@ -227,6 +241,7 @@ li:hover {
 
 #introduction p {
   margin-bottom: 0.5em;
+  width: 404px;
 }
 #portfolio h2 {
   text-align: center;
@@ -240,6 +255,7 @@ li:hover {
   padding-bottom: 50px;
   padding-top: 30px;
 }
+
 .actif {
   color: #ffffff;
   background-color: #1d6154;
@@ -248,9 +264,9 @@ li:hover {
   color: #1d6154;
   background-color: #ffffff;
 }
-.all {
-  padding-left: 29px;
-  padding-right: 29px;
+.classe_filtre {
+  padding-left: 23px;
+  padding-right: 23px;
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 16px;
@@ -261,60 +277,35 @@ li:hover {
   border-color: #1d6154;
   border-width: 1px;
 }
-.objects {
-  padding-left: 21px;
-  padding-right: 21px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: "Syne";
-  text-align: center;
-  border-radius: 60px;
-  border-color: #1d6154;
-  border-width: 1px;
-}
-.appartments {
-  padding-left: 14px;
-  padding-right: 14px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: "Syne";
-  text-align: center;
-  border-radius: 60px;
-  border-color: #1d6154;
-  border-width: 1px;
-}
-.Hôtels_restaurants {
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: "Syne";
-  text-align: center;
-  border-radius: 60px;
-  border-color: #1d6154;
-  border-width: 1px;
-}
+
 .gallery {
-  width: 100%;
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-row-gap: 30px;
 }
 
 .gallery img {
+  display: flex;
   width: 100%;
+  justify-content: center;
+}
+
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#portfolio.off {
+  display: none;
 }
 
 .gallery .active {
   grid-template-columns: auto;
   justify-content: center;
+  width: 305px;
+  height: 407px;
 }
 .off {
   display: none;
@@ -362,45 +353,106 @@ li:hover {
 .login {
   font-weight: bold;
 }
+.mainClass section {
+  margin: 0;
+}
 
-section .title {
-  margin-bottom: 40px;
+#modal .title {
+  margin-top: 30px;
   font-family: Work Sans;
   font-size: 26px;
   font-weight: 400;
   line-height: 30px;
   letter-spacing: 0em;
   text-align: center;
-  color:#000000;
+  color: #000000;
 }
-.modal_body{
-  display: flex;
-   justify-content: center;
-  width: 630px;
-  
-}
-.photo_size{
-  width: 76.86px;
+
+.photo_size {
   height: 102.57px;
-  top: 796px;
-  left: 510px;
-  
+  width: 76.86px;
 }
- 
+
+dialog {
+  padding-top: 660px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border: none;
+  background-color: #0000004d;
+  width: 1349px;
+  height: 2815px;
+  top: 59px;
+}
+
+.Boutonsubmit_modal {
+  font-family: "Syne";
+  font-weight: 700;
+  color: white;
+  background-color: #1d6154;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border: 0;
+  margin-left: 193px;   
+  text-align: center;
+  border-radius: 60px;
+}
+
+.bordure {
+  width: 420px;
+  border: 1px solid #b3b3b3;
+  margin-bottom: 60px;
+  margin-left: 100px;
+}
+
+.modal_close {
+  position: relative;
+  top: 20px;
+  left: 580px;
+}
+
+.modal_content {
+  width: 630px;
+  height: 688px;
+
+  border-radius: 10px;
+  background-color: #ffffff;
+  margin: auto;
+}
+
+.galleryModal {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+  width: 420px;
+}
+
 .gallery .inactive {
   display: none;
 }
 
 .alert {
-  margin-bottom: 20px;
+  margin-top: 20px;
   text-align: center;
   font-family: "Syne";
   font-weight: 700;
   font-size: 20px;
   color: red;
 }
-.curseur {
+.boutonModal {
+  height: 18px;
+  display: flex;
   cursor: default;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
 }
 
 #contact {
