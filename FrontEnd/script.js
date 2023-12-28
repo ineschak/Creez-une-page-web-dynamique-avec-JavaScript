@@ -1,3 +1,11 @@
+/*const token = window.localStorage.getItem("token");
+if (token !== null) {
+  console.log("CONNECTE");
+  const newdiv = document.getElementById("EnTête");
+  newdiv.classList = "En_Tete on";
+  console.log(newdiv); 
+} */
+
 async function getProjets() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
@@ -79,51 +87,18 @@ for (let filter of filters) {
   });
 }
 
-// Création de la page de connexion
-/*const int = document.getElementById("introduction");
-const port = document.getElementById("portfolio");
-const cont = document.getElementById("contact");
-const main = document.getElementById("Main");*/
-
 const Bouton_Login = document.getElementById("Bouton");
 
 Bouton_Login.addEventListener("click", function () {
   location.href = "./login.html";
 });
 
-/*Bouton_Login.className = "login";
-    int.className = "off";
-    port.className = "off";
-    cont.className = "off";
-    const conteneur = document.createElement("section");
-    conteneur.id = "Formulaire";
-    const titre = document.createElement("h2");
-    titre.innerHTML = "Log In";
-    titre.className = "h2";
-    conteneur.appendChild(titre);
-    const form = document.getElementById("formulaire");
-    form.className.remove = "off";
-    conteneur.appendChild(form);
-    const paragraphe = document.createElement("p");
-    paragraphe.innerHTML = "Mot de passe oublié";
-    paragraphe.className = "p";
-    conteneur.appendChild(paragraphe);
-    main.appendChild(conteneur);
-    main.className = "mainClass";
-    const logo = document.getElementById("logo");
-    logo.classList = "curseur";
-    logo.addEventListener("click", function () {
-      window.location = "./index.html";
-    });
-  },
-  { once: true }
-);*/
-
+//Traiter les données du formulaire
 const form = document.getElementById("formulaire");
 
 form.addEventListener("submit", (Event) => {
   Event.preventDefault();
-  //let logged = false;
+
   let user = {
     email: document.getElementById("e_mail").value,
     password: document.getElementById("mot de passe").value,
@@ -136,7 +111,6 @@ form.addEventListener("submit", (Event) => {
       body: JSON.stringify(user),
     });
     result = await response.json();
-
     if (response.status == 404 || response.status == 401) {
       console.log(result);
       const erreur_message = document.createElement("span");
@@ -146,24 +120,50 @@ form.addEventListener("submit", (Event) => {
       form.appendChild(erreur_message);
       //alert("Erreur !")
     }
+
     if (response.status == 200) {
       window.localStorage.setItem("token", result.token);
       const token = window.localStorage.getItem("token");
       console.log(token);
-      logged = true;
+     location.href="./index1.html"
     }
-    return logged;
   }
 
-  async function redirection() {
-    const feedback = await postUser();
-    console.log(feedback);
-    if (feedback == true) {
-      window.location = "./index1.html"; //"index.html"
-      console.log(document);
-    }
-  }
-  redirection();
+  postUser();
+
+  //   // PLUTOT ICI UTILISER UN TOGGLE
+
+  //   divCache.classList.remove("off");
+
+  //   divCache.classList.add("on");
+
+  // } else {
+
+  //   // PLUTOT ICI UTILISER UN TOGGLE
+
+  //   divCache.classList.remove("on");
+
+  //   divCache.classList.add("off");
+
+  // }
+
+  // console.log(divCache);
+
+  // console.log(token);
+
+  // Autre façon de faire
+
+  /*function addElementCacheDOM() {
+
+  const parent = document.getElementById("class1");
+
+  const element = document.createElement("div");
+
+  element.classList.add("TEST");
+
+  element.appendChild(parent);
+
+}*/
 
   //je ne peux pas accéder au contenu de "index1.html" !!
   /*const modal= document.getElementById("bouton_modal")
