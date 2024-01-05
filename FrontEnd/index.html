@@ -12,7 +12,7 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="./script.js" defer></script>
+    <script src="./script.js" type="module" defer></script>
   </head>
 
   <body id="body" class="class_body">
@@ -64,7 +64,75 @@
           </article>
         </section>
         <section id="portfolio">
-          <h2>Mes projets</h2>
+          <div id="modifier" class="modifier off">
+            <h2>Mes projets</h2>
+            <a href="#modal" id="bouton_modal" class="boutonModal">
+              <img src="./assets/icons/Group.svg" alt="stylo" />
+              modifier
+            </a>
+            <aside id="modal" class="modal off">
+              <div id="modalContent" class="modal_content">
+                <img
+                  class="modal_close"
+                  id="close_button"
+                  src="./assets/icons/xmark.svg"
+                />
+                <img
+                  class="fleche_modal off"
+                  id="arrow"
+                  src="./assets/icons/arrow-left.svg"
+                />
+                <div class="modalbody" id="modalbody">
+                  <h1 class="title">Galerie photo</h1>
+                  <div id="gallery-modal" class="galleryModal"></div>
+                  <div class="bordure"></div>
+                  <bouton id="ajouterProjet" class="Boutonsubmit_modal cursor"
+                    >Ajouter une photo</bouton
+                  >
+                </div>
+                <div id="modalbodyAjoutProjet" class="off">
+                  <h1 class="title">Ajout photo</h1>
+                  <div class="divAjoutPhoto">
+                    <img class="rect" src="./assets/icons/Rectangle 21.png" />
+                    <img
+                      class="picture"
+                      src="./assets/icons/picture-svgrepo-com 1.svg"
+                    />
+                    <bouton
+                      onclick="window.location.href ='./assets/images/'"
+                      class="boutonAjouter cursor"
+                    >
+                      + Ajouter photo
+                    </bouton>
+                    <h2 class="txt">jpg, png : 4mo max</h2>
+                  </div>
+
+                  <form
+                    id="formModal"
+                    class="formModal"
+                    action="#"
+                    method="post"
+                  >
+                    <label for="title">Titre</label>
+                    <input type="text" name="text" id="title" />
+                    <label for="catégorie">Catégorie</label>
+                    <select name="text" id="catégorie">
+                      <option value=""></option>
+                      <option value="Tous">Tous</option>
+                      <option value="Objets">Objets</option>
+                      <option value="Appartements">Appartements</option>
+                      <option value="Hôtels & restaurants">
+                        Hôtels & restaurants
+                      </option>
+                    </select>
+                  </form>
+                  <div class="bordure"></div>
+                  <bouton id="btn" class="BoutonValider cursor">Valider</bouton>
+                </div>
+              </div>
+            </aside>
+          </div>
+          <h2 id="h2">Mes projets</h2>
           <div id="les_Filtres" class="Filtres"></div>
           <div id="MyProjects" class="gallery"></div>
         </section>
