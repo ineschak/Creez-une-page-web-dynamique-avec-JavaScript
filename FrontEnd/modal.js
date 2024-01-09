@@ -9,6 +9,10 @@ export function modal() {
     divbody.classList = "class_body";
     const body = document.getElementById("body");
     body.classList.remove("class_body");
+    const btnlogin = document.getElementById("Bouton");
+    btnlogin.classList = "off";
+    const btnlogout = document.getElementById("btn_logout");
+    btnlogout.classList = "cursor";
     const container = document.getElementById("les_Filtres");
     container.classList = "off";
     const h2 = document.getElementById("h2");
@@ -16,9 +20,22 @@ export function modal() {
     const divmodif = document.getElementById("modifier");
     divmodif.classList = "modifier on";
 
+    btnlogout.addEventListener("click", function () {
+      newdiv.classList = "off";
+      body.classList = "class_body";
+      divbody.classList.remove("class_body");
+      container.classList = "Filtres";
+      divmodif.classList = "off";
+      h2.classList = "h2";
+      btnlogout.classList = "off";
+      btnlogin.classList = "cursor";
+    });
+
     const bouton_modal = document.getElementById("bouton_modal");
     bouton_modal.addEventListener("click", async function displayModal(e) {
       e.preventDefault();
+      const gallerymodal = document.getElementById("gallery-modal");
+      gallerymodal.textContent = "";
       const project = await getProjets();
       const modal = document.querySelector(e.target.getAttribute("href"));
       modal.classList = "modal";
@@ -29,10 +46,9 @@ export function modal() {
       };
       const closebutton = document.getElementById("close_button");
       closebutton.onclick = function () {
-        console.log(closebutton);
         modal.classList = "off";
       };
-      const gallerymodal = document.getElementById("gallery-modal");
+
       for (const element of project) {
         const divElement = document.createElement("div");
         divElement.className = "photo_size";
@@ -61,7 +77,36 @@ export function modal() {
             modalbody.classList = "modalbody visible";
             arrow.classList = "off";
           };
+          const inputFile = document.getElementById("file");
+          const ajoutphoto = document.getElementById("ajoutphoto");
+          const displayphoto = document.getElementById("displayphoto");
+
+          inputFile.addEventListener("change", function () {
+            ajoutphoto.classList = "off";
+            displayphoto.classList = "on";
+            displayphoto.src = URL.createObjectURL(inputFile.files[0]);
+          });
         };
+        //Envoi nouveau projet
+        const formModal = document.getElementById("formModal");
+
+        formModal.addEventListener("submit", async function sendData(e) {
+          e.preventDefault();
+          const formData = new FormData(formModal);
+          console.log(formData);
+
+          const response = await fetch("http://localhost:5678/api/works", {
+            body: formData,
+            method: "post",
+            headers: { Authorization: "Bearer " + token },
+          });
+          if (response.status == 200 || response.status == 204) {
+          console.log("Données envoyées")
+
+          }
+           
+        });
+
         //Suppression des projets
         icone.addEventListener("click", async function suppressionItemModal() {
           const id = this.dataset.id;
@@ -76,7 +121,7 @@ export function modal() {
 
           console.log(response.status);
           if (response.status == 200 || response.status == 204) {
-            icone.closest("div").style.visibility = "hidden";
+            icone.closest("div").classList = "off";
             window.stop();
           }
         });

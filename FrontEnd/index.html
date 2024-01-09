@@ -28,6 +28,7 @@
             <li>projets</li>
             <li>contact</li>
             <li class="cursor" id="Bouton">login</li>
+            <li class="off" id="btn_logout">logout</li>
             <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
           </ul>
         </nav>
@@ -92,42 +93,55 @@
                 </div>
                 <div id="modalbodyAjoutProjet" class="off">
                   <h1 class="title">Ajout photo</h1>
-                  <div class="divAjoutPhoto">
-                    <img class="rect" src="./assets/icons/Rectangle 21.png" />
-                    <img
-                      class="picture"
-                      src="./assets/icons/picture-svgrepo-com 1.svg"
-                    />
-                    <bouton
-                      onclick="window.location.href ='./assets/images/'"
-                      class="boutonAjouter cursor"
-                    >
-                      + Ajouter photo
-                    </bouton>
-                    <h2 class="txt">jpg, png : 4mo max</h2>
-                  </div>
 
                   <form
                     id="formModal"
+                    enctype="multipart/form-data"
+                    name="fileinfo"
                     class="formModal"
-                    action="#"
                     method="post"
                   >
+                    <div class="divAjoutPhoto">
+                      <div id="ajoutphoto">
+                        <img
+                          class="picture"
+                          src="./assets/icons/picture-svgrepo-com 1.svg"
+                        />
+                        <label for="file" class="btn_Ajoutphoto cursor">
+                          + Ajouter photo
+                        </label>
+                        <input
+                          type="file"
+                          name="file"
+                          class="input-file"
+                          id="file"
+                        />
+                        <h2 class="txt">jpg, png : 4mo max</h2>
+                      </div>
+                      <img class="off" id="displayphoto" src="" />
+                    </div>
                     <label for="title">Titre</label>
-                    <input type="text" name="text" id="title" />
+                    <input type="text" name="title" id="title" />
                     <label for="catégorie">Catégorie</label>
-                    <select name="text" id="catégorie">
+                    <select name="catégorie" id="catégorie">
                       <option value=""></option>
-                      <option value="Tous">Tous</option>
-                      <option value="Objets">Objets</option>
-                      <option value="Appartements">Appartements</option>
-                      <option value="Hôtels & restaurants">
+                      <option data-id="0" value="Tous">Tous</option>
+                      <option data-id="1" value="Objets">Objets</option>
+                      <option data-id="2" value="Appartements">
+                        Appartements
+                      </option>
+                      <option data-id="3" value="Hôtels & restaurants">
                         Hôtels & restaurants
                       </option>
                     </select>
+                    <div class="bordure"></div>
+                    <input
+                      id="Boutonsubmit"
+                      type="submit"
+                      class="cursor"
+                      value="Valider"
+                    />
                   </form>
-                  <div class="bordure"></div>
-                  <bouton id="btn" class="BoutonValider cursor">Valider</bouton>
                 </div>
               </div>
             </aside>

@@ -24,4 +24,5 @@ export async function displayProject() {
     article.appendChild(articleImage);
     article.appendChild(articleTitle);
   }
+ 
 }

@@ -28,24 +28,6 @@ import { modal } from "./modal.js";
 modal();
 localStorage.clear();
 
-//Envoi nouveau projet
 
-form.onsubmit = async (e) => {
-  e.preventDefault();
-
-  let data = {
-    titre: document.getElementById("title").value,
-    catégorie: document.getElementById("catégorie").value,
-  };
-
-  console.log(data);
-  let response = await fetch("http://localhost:5678/api/works", {
-    method: "POST",
-    body: new FormData(form),
-    headers: { Authorization: "Bearer " + token },
-  });
-
-  let result = await response.json();
-  console.log(result);
-  alert(result.message);
-};
+ 
+ 
