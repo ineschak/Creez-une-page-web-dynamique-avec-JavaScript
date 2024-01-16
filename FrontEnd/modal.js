@@ -3,6 +3,7 @@ export function modal() {
   const token = window.localStorage.getItem("token");
   if (token !== null) {
     console.log("CONNECTE");
+    console.log(token);
     const newdiv = document.getElementById("EnTête");
     newdiv.classList = "En_Tete on";
     const divbody = document.getElementById("divbody");
@@ -79,33 +80,53 @@ export function modal() {
           };
           const inputFile = document.getElementById("file");
           const ajoutphoto = document.getElementById("ajoutphoto");
-          const displayphoto = document.getElementById("displayphoto");
+          const image = document.getElementById("displayphoto");
 
           inputFile.addEventListener("change", function () {
             ajoutphoto.classList = "off";
-            displayphoto.classList = "on";
-            displayphoto.src = URL.createObjectURL(inputFile.files[0]);
+            image.classList = "on";
+            image.src = URL.createObjectURL(inputFile.files[0]);
+          });
+          //Envoi nouveau projet
+
+          const formModal = document.getElementById("formModal");
+
+          const formData = new FormData();
+
+          const title = document.getElementById("title");
+          const category = document.getElementById("catégorie");
+          formData.append("image", inputFile.files[0]);
+          formData.append("title", title.value);
+          formData.append("category", category.value);
+
+          /* let i=0
+         formModal.onchange=function(){
+          for(let value of formData.values()){
+            console.log(value)
+            if(value!==""){
+            i++}
+          }
+           if (i=3){
+            console.log("formulaire bien rempli")}
+            }*/
+
+          formModal.addEventListener("submit", async function sendData(e) {
+            e.preventDefault();
+            const formData = new FormData(formModal);
+            for (let value of formData.values()) {
+              console.log(value);
+            }
+
+            const response = await fetch("http://localhost:5678/api/works", {
+              body: formData,
+              method: "post",
+              headers: { Authorization: "Bearer " + token },
+            });
+            console.log(response);
+            console.log("GOOD JOB ! ");
+            window.stop();
           });
         };
-        //Envoi nouveau projet
-        const formModal = document.getElementById("formModal");
-
-        formModal.addEventListener("submit", async function sendData(e) {
-          e.preventDefault();
-          const formData = new FormData(formModal);
-          console.log(formData);
-
-          const response = await fetch("http://localhost:5678/api/works", {
-            body: formData,
-            method: "post",
-            headers: { Authorization: "Bearer " + token },
-          });
-          if (response.status == 200 || response.status == 204) {
-          console.log("Données envoyées")
-
-          }
-           
-        });
 
         //Suppression des projets
         icone.addEventListener("click", async function suppressionItemModal() {

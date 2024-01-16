@@ -1,6 +1,15 @@
-export function form() {
+export function form() {  
+  
+  const token = window.localStorage.getItem("token");
+  if (token == null) {
+ 
+   
+      console.log(" NON CONNECTE");
+      
   const form = document.getElementById("formulaire");
-
+  console.log(form)
+  const erreur_message = document.createElement("span");
+  erreur_message.innerHTML = "";
   form.addEventListener("submit", (Event) => {
     Event.preventDefault();
 
@@ -16,24 +25,26 @@ export function form() {
         body: JSON.stringify(user),
       });
       const result = await response.json();
-      if (response.status == 404 || response.status == 401) {
-        console.log(result);
-        const erreur_message = document.createElement("span");
-        erreur_message.innerHTML = " ERROR : " + result.message;
-        erreur_message.className = "alert";
-        const form = document.getElementById("formulaire");
-        form.appendChild(erreur_message);
-        //alert("Erreur !")
-      }
+      
 
       if (response.status == 200) {
         window.localStorage.setItem("token", result.token);
         const token = window.localStorage.getItem("token");
         console.log(token);
-        location.href = "./index.html";
-      }
-    }
+        location.href = "./index.html"; 
+      } else {
+        erreur_message.innerHTML = " ERROR : User " + response.statusText;
+        erreur_message.className = "alert";
+        const form = document.getElementById("formulaire");
+        form.appendChild(erreur_message); 
+      } 
+    } 
 
     postUser();
   });
+ 
 }
+
+}
+ 
+

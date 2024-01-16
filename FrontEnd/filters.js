@@ -1,10 +1,14 @@
 export function filtres(innerHTML, className, id) {
+
   let filter = document.createElement("button");
   filter.innerHTML = innerHTML;
   filter.className = className;
   filter.id = id;
+ 
+  
   const container = document.getElementById("les_Filtres");
-  container.appendChild(filter);
+ 
+  container.appendChild(filter);         
 
   let filters = document.querySelectorAll("#les_Filtres button");
 
@@ -28,3 +32,4 @@ export function filtres(innerHTML, className, id) {
     });
   }
 }
+ 
