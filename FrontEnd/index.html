@@ -99,6 +99,7 @@
                     name="fileinfo"
                     class="formModal"
                     method="post"
+                    action=""
                   >
                     <div class="divAjoutPhoto">
                       <div id="ajoutphoto">
@@ -120,24 +121,22 @@
                       <img class="off" id="displayphoto" src="" />
                     </div>
                     <label for="title">Titre</label>
-                    <input type="text" name=title id="title" />
+                    <input type="text" name="title" id="title" />
                     <label for="catégorie">Catégorie</label>
-                    <select name=category id="catégorie">
+                    <select name="category" id="catégorie">
                       <option value=""></option>
-                      <option  value="0">Tous</option>
-                      <option  value="1">Objets</option>
-                      <option  value="2">
-                        Appartements
-                      </option>
-                      <option  value="3">
-                        Hôtels & restaurants
-                      </option>
+                      <option value="0">Tous</option>
+                      <option value="1">Objets</option>
+                      <option value="2">Appartements</option>
+                      <option value="3">Hôtels & restaurants</option>
                     </select>
-                    <div class="bordure"></div>
+                    <div id="message"></div>
+
+                    <div id="bordure" class="bordure"></div>
                     <input
-                      id="Boutonsubmit"
+                      id="Btn_submit"
                       type="submit"
-                      class="cursor"
+                      class="btnValider cursor"
                       value="Valider"
                     />
                   </form>
@@ -149,7 +148,7 @@
           <div id="les_Filtres" class="Filtres"></div>
           <div id="MyProjects" class="gallery"></div>
         </section>
-        <section id="contact">  
+        <section id="contact">
           <h2>Contact</h2>
           <p>Vous avez un projet ? Discutons-en !</p>
           <form action="#" method="post">

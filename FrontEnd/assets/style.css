@@ -408,8 +408,20 @@ figure img {
   top: 10px;
   left: 172px;
 }
-.btnsubmit {
-  background-color: #1d6154;
+#formModal .btnsubmit {
+  font-family: Syne;
+  font-size: 14px;
+  font-weight: 700;
+  border: 0px;
+  text-align: center;
+  width: 237px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 60px; 
+  background-color: #1D6154;
+  color: #ffffff;
+  margin: auto;
+  margin-top: 25px;
 }
 
 .divAjoutPhoto .btn_Ajoutphoto {
@@ -541,7 +553,7 @@ option[value] {
   left: 0;
   top: 0;
   width: 100%;
-  height: 2790px;
+  height:2800px;
   padding-top: 700px;
   background-color: #0000004d;
 }
@@ -566,6 +578,21 @@ option[value] {
   border: 1px solid#B3B3B3;
   margin-bottom: 5px;
   margin-top: 50px;
+}
+.new_bordure{
+  width: 420px;
+  border: 1px solid#B3B3B3;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.newmodalbody .category{
+  border: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  width: 420px;
+  height: 51px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
 }
 
 .modal_close {
@@ -605,6 +632,15 @@ option[value] {
   font-family: "Syne";
   font-weight: 700;
   font-size: 20px;
+  color: red;
+}
+
+ .message{
+  padding-top: 40px;
+  text-align: center;
+  font-family: "Syne";
+  font-weight: 700;
+  font-size: 16px;
   color: red;
 }
 .boutonModal {
@@ -654,7 +690,8 @@ option[value] {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"] {
+#contact input[type="submit"],
+.mainClass input[type="submit"]  {
   font-family: "Syne";
   font-weight: 700;
   color: white;
@@ -664,7 +701,7 @@ input[type="submit"] {
   text-align: center;
   border-radius: 60px;
 }
-#formModal input[type="submit"] {
+ #formModal .btnValider {
   font-family: Syne;
   font-size: 14px;
   font-weight: 700;
@@ -676,6 +713,8 @@ input[type="submit"] {
   border-radius: 60px;
   background-color: #a7a7a7;
   color: #ffffff;
+  margin: auto;
+  margin-top: 25px;
 }
 
 footer nav ul {
