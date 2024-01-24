@@ -129,7 +129,7 @@ export function modal() {
           const bordure = document.getElementById("bordure");
           const input = document.getElementById("catégorie");
           message_erreur.classList = "message";
-          message_succès.classList = "message";
+          message_succès.classList = "messageSuccès";
           message_erreur.innerHTML = "Veuillez remplir tous les champs!";
           message_succès.innerHTML = "Le formulaire est correctement envoyé";
           formModal.onchange = () => {
