@@ -1,5 +1,5 @@
-// Récupérer les projets de l'architecte 
-import {projects } from "./projects.js";
+// Récupérer les projets de l'architecte
+import { projects } from "./projects.js";
 projects();
 
 // Création des filtres

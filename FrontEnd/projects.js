@@ -1,10 +1,9 @@
-export function projects(){
-  getProjets() 
-  displayProject()
+export function projects() {
+  getProjets();
+  displayProject();
 }
 
-
- async function getProjets() {
+async function getProjets() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
     if (!response.ok) {
@@ -16,7 +15,7 @@ export function projects(){
     console.log(err);
   }
 }
- async function displayProject() {
+async function displayProject() {
   const project = await getProjets();
   for (const element of project) {
     const mesProjets = document.createElement("div");

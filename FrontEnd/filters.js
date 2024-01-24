@@ -8,22 +8,20 @@ export function filtres(innerHTML, className, id) {
   filter.className = className;
   filter.id = id;
   //Ajout addEventlistener
-  for (let filter of filters) {
-    filter.addEventListener("click", function (e) {
-      const tag = this.id;
-      if (document.querySelector("#les_Filtres button.actif") !== null) {
-        document
-          .querySelector("#les_Filtres button.actif")
-          .classList.replace("actif", "inactif");
+  filter.addEventListener("click", function (e) {
+    const tag = this.id;
+    if (document.querySelector("#les_Filtres button.actif") !== null) {
+      document
+        .querySelector("#les_Filtres button.actif")
+        .classList.replace("actif", "inactif");
+    }
+    e.target.className = "classe_filtre actif";
+    let articles = document.querySelectorAll("#MyProjects figure");
+    for (let article of articles) {
+      article.classList.replace("active", "inactive");
+      if (tag === article.dataset.id || tag === "0") {
+        article.classList.replace("inactive", "active");
       }
-      e.target.className = "classe_filtre actif";
-      let articles = document.querySelectorAll("#MyProjects figure");
-      for (let article of articles) {
-        article.classList.replace("active", "inactive");
-        if (tag === article.dataset.id || tag === "0") {
-          article.classList.replace("inactive", "active");
-        }
-      }
-    });
-  }
+    }
+  });
 }
