@@ -3,6 +3,7 @@ export function projects() {
   displayProject();
 }
 
+// Récupérer les projets de l'architecte
 async function getProjets() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
@@ -14,7 +15,9 @@ async function getProjets() {
   } catch (err) {
     console.log(err);
   }
-}
+} 
+
+//Afficher les projets 
 async function displayProject() {
   const project = await getProjets();
   for (const element of project) {

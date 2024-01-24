@@ -1,6 +1,5 @@
 export function filtres(innerHTML, className, id) {
   let filter = document.createElement("button");
-  let filters = document.querySelectorAll("#les_Filtres button");
   const container = document.getElementById("les_Filtres");
   container.appendChild(filter);
   //Création_filtres
