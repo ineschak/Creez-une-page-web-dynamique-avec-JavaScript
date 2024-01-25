@@ -11,7 +11,7 @@ async function getProjets() {
     console.log(err);
   }
 }
-export function modal() {
+export function modal() { 
   const token = window.localStorage.getItem("token");
   if (token !== null) {
     const btnlogout = document.getElementById("btn_logout");
