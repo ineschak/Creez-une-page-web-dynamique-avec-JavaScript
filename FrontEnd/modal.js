@@ -1,4 +1,3 @@
-
 async function getProjets() {
   try {
     const response = await fetch("http://localhost:5678/api/works");
@@ -11,7 +10,7 @@ async function getProjets() {
     console.log(err);
   }
 }
-export function modal() { 
+export function modal() {
   const token = window.localStorage.getItem("token");
   if (token !== null) {
     const btnlogout = document.getElementById("btn_logout");
@@ -146,7 +145,6 @@ export function modal() {
               message_erreur.classList = "off";
             } else {
               btn.classList = "btnValider  cursor";
-              message_erreur.classList = "message";
             }
           };
 
