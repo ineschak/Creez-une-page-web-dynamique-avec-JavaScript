@@ -20,6 +20,7 @@ async function getProjets() {
 //Afficher les projets 
 async function displayProject() {
   const project = await getProjets();
+  
   for (const element of project) {
     const mesProjets = document.createElement("div");
     mesProjets.className = "gallery";
@@ -28,14 +29,15 @@ async function displayProject() {
     const articleTitle = document.createElement("figcaption");
     articleImage.src = element.imageUrl;
     article.classList = "active";
+    article.id=element.id
     if (element.category.name == "Objets") {
-      article.dataset.id = "1";
+      article.dataset.category = "1";
     }
     if (element.category.name == "Appartements") {
-      article.dataset.id = "2";
+      article.dataset.category = "2";
     }
     if (element.category.name == "Hotels & restaurants") {
-      article.dataset.id = "3";
+      article.dataset.category = "3";
     }
     articleTitle.textContent = element.title;
 
@@ -43,5 +45,8 @@ async function displayProject() {
     Parent.appendChild(article);
     article.appendChild(articleImage);
     article.appendChild(articleTitle);
+    
   }
+  
 }
+ 

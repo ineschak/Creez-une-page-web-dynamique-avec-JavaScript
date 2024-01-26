@@ -78,9 +78,11 @@ export function modal() {
 
         //Suppression des projets
         icone.addEventListener("click", async function suppressionItemModal() {
-          const id = this.dataset.id;
+          const tag = this.dataset.id;
+          let articles = document.querySelectorAll("#MyProjects figure");
+
           const response = await fetch(
-            `http://localhost:5678/api/works/${id}`,
+            `http://localhost:5678/api/works/${tag}`,
             {
               method: "DELETE",
               headers: { Authorization: "Bearer " + token },
@@ -89,7 +91,12 @@ export function modal() {
           console.log(response.status);
           if (response.status == 200 || response.status == 204) {
             icone.closest("div").classList = "off";
-            window.stop();
+            for (let article of articles) {
+              const id = article.id;
+              if (id == tag) {
+                article.classList = "inactive";
+              }
+            }
           }
         });
 
@@ -147,11 +154,18 @@ export function modal() {
               btn.classList = "btnValider  cursor";
             }
           };
+          const article = document.querySelectorAll("#MyProjects figure");
 
           // Traitement de la réponse de l’API
           formModal.addEventListener("submit", async function sendData(e) {
             e.preventDefault();
             const formData = new FormData(formModal);
+            const gallery = document.getElementById("MyProjects");
+            const article = document.createElement("figure");
+
+            const articleImage = document.createElement("img");
+            const articleTitle = document.createElement("figcaption");
+
             if (
               title.value == "" ||
               title.value == null ||
@@ -171,12 +185,20 @@ export function modal() {
                 headers: { Authorization: "Bearer " + token },
               });
               if (response.status == 200 || response.status == 201) {
+                if ((element.title = title.value)) {
+                  articleTitle.textContent = element.title;
+                  articleImage.src = element.imageUrl;
+                }
+                article.appendChild(articleImage);
+                article.appendChild(articleTitle);
+                article.className = "active";
+                article.dataset.category = category.value;
+                gallery.appendChild(article);
                 message.appendChild(message_succès);
                 bordure.classList = "new_bordure";
                 input.classList = "category";
               }
             }
-            window.stop();
           });
         };
       }

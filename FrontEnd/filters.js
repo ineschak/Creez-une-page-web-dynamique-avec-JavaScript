@@ -20,6 +20,7 @@ export function filtres(innerHTML, className, id) {
       article.classList.replace("active", "inactive");
       if (tag === article.dataset.id || tag === "0") {
         article.classList.replace("inactive", "active");
+        
       }
     }
   });
