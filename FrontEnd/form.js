@@ -16,9 +16,9 @@ export function form() {
           headers: { "Content-Type": "application/json;charset=utf-8" },
           body: JSON.stringify(user),
         });
-        const result = await response.json();
 
         if (response.status == 200) {
+          const result = await response.json();
           window.localStorage.setItem("token", result.token);
           const token = window.localStorage.getItem("token");
           console.log(token);

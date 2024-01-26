@@ -80,7 +80,6 @@ export function modal() {
         icone.addEventListener("click", async function suppressionItemModal() {
           const tag = this.dataset.id;
           let articles = document.querySelectorAll("#MyProjects figure");
-
           const response = await fetch(
             `http://localhost:5678/api/works/${tag}`,
             {
@@ -94,7 +93,7 @@ export function modal() {
             for (let article of articles) {
               const id = article.id;
               if (id == tag) {
-                article.classList = "inactive";
+                article.remove();
               }
             }
           }
@@ -154,7 +153,6 @@ export function modal() {
               btn.classList = "btnValider  cursor";
             }
           };
-          const article = document.querySelectorAll("#MyProjects figure");
 
           // Traitement de la réponse de l’API
           formModal.addEventListener("submit", async function sendData(e) {
@@ -162,7 +160,6 @@ export function modal() {
             const formData = new FormData(formModal);
             const gallery = document.getElementById("MyProjects");
             const article = document.createElement("figure");
-
             const articleImage = document.createElement("img");
             const articleTitle = document.createElement("figcaption");
 
@@ -175,7 +172,6 @@ export function modal() {
               inputFile.files[0] == null
             ) {
               message.appendChild(message_erreur);
-
               bordure.classList = "new_bordure";
               input.classList = "category";
             } else {
@@ -184,15 +180,18 @@ export function modal() {
                 method: "post",
                 headers: { Authorization: "Bearer " + token },
               });
+
               if (response.status == 200 || response.status == 201) {
-                if ((element.title = title.value)) {
-                  articleTitle.textContent = element.title;
-                  articleImage.src = element.imageUrl;
-                }
+                const project = await getProjets();
+                const imageUrl = project[project.length - 1].imageUrl;
+                const imageTitle = project[project.length - 1].title;
+                articleTitle.textContent = imageTitle;
+                articleImage.src = imageUrl;
                 article.appendChild(articleImage);
                 article.appendChild(articleTitle);
                 article.className = "active";
-                article.dataset.category = category.value;
+                article.dataset.id = category.value;
+                article.id = element.id;
                 gallery.appendChild(article);
                 message.appendChild(message_succès);
                 bordure.classList = "new_bordure";
